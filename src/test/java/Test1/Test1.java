@@ -1,7 +1,9 @@
 package Test1;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,6 +16,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
+import java.util.Properties;
+
 import org.apache.commons.io.FileUtils;
 
 import static java.lang.Integer.parseInt;
@@ -23,12 +27,25 @@ import static org.testng.Assert.assertTrue;
 
 public class Test1 {
 
-    public static WebDriver driver= new ChromeDriver();
+    private static WebDriver driver = null;
+
+
     @BeforeSuite
     public void browser() {
 
-    System.setProperty("webdriver.chrome.driver",Utils.CHROME_DRIVER);
+//    System.setProperty("webdriver.chrome.driver",Utils.CHROME_DRIVER);
+        if (Utils.BROWSER.equalsIgnoreCase("chrome")) {
+            //initializing and starting the chrome browser
+            WebDriverManager.chromedriver().setup();
+            driver = new ChromeDriver();
 
+        } else if (Utils.BROWSER.equalsIgnoreCase("firefox")) {
+            //initializing and starting the firefox browser
+            WebDriverManager.firefoxdriver().setup();
+            driver = new FirefoxDriver();
+
+
+        }
     }
 
 
@@ -199,10 +216,10 @@ public class Test1 {
 
     private void CheckCookiesAndProceed(WebDriver driver) {
 
-        WebElement host = driver.findElement(By.cssSelector("[settings-id=\"fph8XBqir\"]"));
+        WebElement host = driver.findElement(By.cssSelector(Utils.COOKIES_HELPER));
         JavascriptExecutor js = (JavascriptExecutor)driver;
         WebElement shadowRoot = (WebElement)(js.executeScript("return arguments[0].shadowRoot", host));
-        shadowRoot.findElement(By.cssSelector("[data-test=\"handle-accept-all-button\"]")).click();
+        shadowRoot.findElement(By.cssSelector(Utils.COOKIES_ACCEPT_BUTTON)).click();
     }
 
     public static void takeSnapShot(WebDriver webdriver,String fileWithPath) throws IOException {

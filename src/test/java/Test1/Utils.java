@@ -2,14 +2,13 @@ package Test1;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
 public class Utils {
 
     //These will be set as properties
     final static String MERC_URL = "https://www.mercedes-benz.co.uk";
     final static String BODY = "Hatchbacks";
-    final static String A_CLASS_TEXT = "A-Class";
+    final static String MODEL_TEXT = "A-Class";
     final static int MAX_PRICE = 60000;
     final static int MIN_PRICE = 15000;
     final static String BROWSER = "Chrome";
@@ -18,12 +17,13 @@ public class Utils {
 
 
     final static String CHROME_DRIVER ="src\\chromedriver.exe";
+    final static String GECKO_DRIVER = "src\\geckodriver.exe";
 
     //    Web Page items
     final static List<String> BODY_TYPES = Arrays.asList("Hatchbacks", "Saloons", "Estates", "SUVs", "Coupés", "Cabriolets", "Roadsters", "MPVs", "See All");
     final static String MODEL_CSS = "vmos_jQyeG";
 
-    final static String A_CLASS_XPATH = "//div/div/a/div/div/span/div/span[contains(text(), "+A_CLASS_TEXT+")][@class=\"vmos_1PW4e\"]";
+    final static String A_CLASS_XPATH = "//div/div/a/div/div/span/div/span[contains(text(), "+ MODEL_TEXT +")][@class=\"vmos_1PW4e\"]";
     //To Be improved
     public static String BUILD_BUTTON_XPATH = "//wb-popover[1]/ul/li[1]/a";
     public static final String FUEL_TABLE_XPATH = "//fieldset[1]" ;
@@ -32,4 +32,7 @@ public class Utils {
     public static String MODELS_PAGINATION_CSS_SELECTOR = ".cc-motorization-comparsion-status__pagination";
     public static String MODELS_RIGHT_SLIDER_XPATH = "//cc-motorization-comparison/div/div/cc-slider/div/cc-slider-ui-container/cc-slider-buttons/div/button[2]/div";
     public static String HOME_PAGE_READY_XPATH = "//div[@class=\"nextstepnavigation__base\"]";
+    public static String COOKIES_HELPER ="[settings-id=\"fph8XBqir\"]";
+    public static String COOKIES_ACCEPT_BUTTON = "[data-test=\"handle-accept-all-button\"]";
+
 }
