@@ -7,9 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -25,21 +23,25 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
 
-public class Test1 {
+public class Test1{
 
     private static WebDriver driver = null;
 
+    @Parameters("desiredbrowser")
 
-    @BeforeSuite
-    public void browser() {
+    @BeforeTest
+    public void browser(String desiredbrowser) {
+
+        //String desiredbrowser = Utils.BROWSER;
+
 
 //    System.setProperty("webdriver.chrome.driver",Utils.CHROME_DRIVER);
-        if (Utils.BROWSER.equalsIgnoreCase("chrome")) {
+        if (desiredbrowser.equalsIgnoreCase("chrome")) {
             //initializing and starting the chrome browser
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
 
-        } else if (Utils.BROWSER.equalsIgnoreCase("firefox")) {
+        } else if (desiredbrowser.equalsIgnoreCase("firefox")) {
             //initializing and starting the firefox browser
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
@@ -259,7 +261,7 @@ public class Test1 {
             writer.close();
     }
 
-    @AfterSuite
+    @AfterTest
     public static void cleanup(){
 
         driver.manage().deleteAllCookies();

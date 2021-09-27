@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Practice Suite">
+
+    <test name="Test with Chrome">
+        <parameter name="desiredbrowser" value="chrome"/>
+        <classes>
+            <class name="Test1.Test1"/>
+        </classes>
+    </test> <!-- Test -->
+
+    <test name="Test with Firefox">
+        <parameter name="desiredbrowser" value="firefox"/>
+        <classes>
+            <class name="Test1.Test1"/>
+        </classes>
+    </test> <!-- Test -->
+
+
+</suite> <!-- Suite -->
