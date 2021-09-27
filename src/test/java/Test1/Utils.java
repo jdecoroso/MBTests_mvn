@@ -14,8 +14,6 @@ public class Utils {
     public static String DESIRED_FUEL = "Diesel";
 
 
-
-
     public static String FOLDER = "c:\\snapshots\\";
 
     //    Web Page items
