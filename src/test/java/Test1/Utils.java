@@ -5,23 +5,23 @@ import java.util.List;
 
 public class Utils {
 
-    //These will be set as properties
+    //These are good candidates to be set as properties
     final static String MERC_URL = "https://www.mercedes-benz.co.uk";
     final static String BODY = "Hatchbacks";
     final static String MODEL_TEXT = "A-Class";
     final static int MAX_PRICE = 60000;
     final static int MIN_PRICE = 15000;
-    final static String BROWSER = "Chrome";
     public static String DESIRED_FUEL = "Diesel";
+
+
+
+
     public static String FOLDER = "c:\\snapshots\\";
-
-
-    final static String CHROME_DRIVER ="src\\chromedriver.exe";
-    final static String GECKO_DRIVER = "src\\geckodriver.exe";
 
     //    Web Page items
     final static List<String> BODY_TYPES = Arrays.asList("Hatchbacks", "Saloons", "Estates", "SUVs", "Coupés", "Cabriolets", "Roadsters", "MPVs", "See All");
     final static String MODEL_CSS = "vmos_jQyeG";
+    public static final String MAIN_PAGE_TEXT_VALIDATOR = "Mercedes-Benz Passenger Cars";
 
     final static String A_CLASS_XPATH = "//div/div/a/div/div/span/div/span[contains(text(), "+ MODEL_TEXT +")][@class=\"vmos_1PW4e\"]";
     //To Be improved

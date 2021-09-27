@@ -65,7 +65,7 @@ public class Test1{
     public void ValidateBasicContent(){
         String title = driver.getTitle();
         System.out.println(title);
-        assertEquals(title,"Mercedes-Benz Passenger Cars");
+        assertEquals(title,Utils.MAIN_PAGE_TEXT_VALIDATOR);
         //A lot of more things can be validated here
     }
 
